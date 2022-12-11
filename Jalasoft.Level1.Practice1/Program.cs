@@ -5,7 +5,7 @@ public struct Program
 {
     static void Main(string[] args)
     {
-        RestaurantMenu menu1 = new RestaurantMenu("Practice 01 Restaurant");
+        RestaurantMenu menu1 = new RestaurantMenu();
 
         Console.WriteLine("Hello, World!");
         menu1.Start();

@@ -9,12 +9,12 @@ namespace Jalasoft.Level1.Practice1
 {
     public struct RestaurantMenu
     {
-        private string nameRestaurant;
+        private Menu MenuRestaurant;
 
-        private int exitOption = 0;
-        public RestaurantMenu(string name) { 
-        
-            this.nameRestaurant = name;
+        private int exitOption;
+        public RestaurantMenu() {
+            MenuRestaurant= new Menu(); 
+            exitOption = 0;
         }
         private int ChooseOption()
         {
@@ -27,7 +27,7 @@ namespace Jalasoft.Level1.Practice1
         {
             Console.WriteLine("");
             Console.WriteLine("--------------");
-            Console.WriteLine("1. Register Customer");
+            Console.WriteLine("1.Show Menu ");
             Console.WriteLine("2. Show Menu");
             Console.WriteLine("3. Register order ");
             Console.WriteLine("4. Show debt");
@@ -50,19 +50,19 @@ namespace Jalasoft.Level1.Practice1
             switch(option)
             {
                 case 1:
-                    Console.WriteLine("usted seleciono uno");
+                    MenuRestaurant.Show();
                     break;
                 case 2:
-                    Console.WriteLine("usted seleciono2");
+                    Console.WriteLine("usted seleciono 2");
                     break;
-                case 3: Console.WriteLine("Usted selecciono3");
+                case 3: Console.WriteLine("Usted selecciono 3");
                     break;
                 case 4:
                     Console.WriteLine("Usted selecciono4");
                     break;
 
                 case 0:
-                    Console.WriteLine("Usted selecciono0");
+                    Console.WriteLine("Close App");
                     break;
                 default:
                     break;
