@@ -12,7 +12,7 @@ namespace Jalasoft.Level1.Practice1
         private Menu MenuRestaurant;
        
         private Queue<Order> Orders;
-        private Queue<Order> Last5PreparedOrders;
+        private List<Order> Last5PreparedOrders;
 
         private int exitOption;
         public RestaurantMenu() {
@@ -20,7 +20,7 @@ namespace Jalasoft.Level1.Practice1
            
             exitOption = 0;
             Orders = new Queue<Order>();
-            Last5PreparedOrders = new Queue<Order>();
+            Last5PreparedOrders = new List<Order>();
         }
         public void AddOrder(Order newOrder)
         {
@@ -32,8 +32,9 @@ namespace Jalasoft.Level1.Practice1
 
             if(Orders.Count == 5)
             {
+
                 PrepareTop5Orders();
-                DeliverTop5Orders();
+                //DeliverTop5Orders();
             }
                 
         }
@@ -48,9 +49,10 @@ namespace Jalasoft.Level1.Practice1
             Console.WriteLine("delivering five orders");
             for (int i = 0; i < 5; i++)
             {
+              
                 Order deliveredOrder = Orders.Dequeue();
                 Console.WriteLine(deliveredOrder.GetDeliverOrderInformation());
-                Last5PreparedOrders.Enqueue(deliveredOrder);
+                Last5PreparedOrders.Add(deliveredOrder);
             }    
         }
 
@@ -68,8 +70,8 @@ namespace Jalasoft.Level1.Practice1
             Console.WriteLine("--------------");
             Console.WriteLine("1.Show Menu ");
             Console.WriteLine("2. Register Order");
-            Console.WriteLine("3. Show 5 Orders");
-            Console.WriteLine("4. Show delivered 5 orders");
+            Console.WriteLine("3. Show the 5 orders ");
+            Console.WriteLine("4. Deliver orders ");
             Console.WriteLine("0. Exit");
         }
         public void Start()
@@ -96,12 +98,11 @@ namespace Jalasoft.Level1.Practice1
                     AddOrder(new Order());
                     break;
                 case 3:
-                    PrepareTop5Orders();
+                    ShowLast5DeliveredOrders();
                     break;
                 case 4:
                     DeliverTop5Orders();
                     break;
-
                 case 0:
                     Console.WriteLine("Close App");
                     break;
@@ -111,7 +112,12 @@ namespace Jalasoft.Level1.Practice1
 
         }
 
-
-
+        private void ShowLast5DeliveredOrders()
+        {
+            for (int i = 0; i < Last5PreparedOrders.Count; i++)
+            {
+                Last5PreparedOrders[i].GetDeliverOrderInformation();
+            }
+        }
     }
 }
