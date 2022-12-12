@@ -44,7 +44,7 @@ namespace Jalasoft.Level1.Practice1
             Console.WriteLine("Beverages:");
             for (int i = 0; i < Beverages.Count; i++)
             {
-                Beverages[i].Show(Dishes.Count+i+1);
+                Beverages[i].Show(i+1);
             }
             
             Console.WriteLine("----------------------");

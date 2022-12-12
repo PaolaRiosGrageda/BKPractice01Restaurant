@@ -10,10 +10,12 @@ namespace Jalasoft.Level1.Practice1
     {
         public NameBeverage Name { get; set; }
         public double Value { get; set; }
-        public Beverage(NameBeverage name, double value)
+        public int Quantity { get; set; }
+        public Beverage(NameBeverage name, double value, int quantity=0)
         {
             Name = name; 
             Value = value;
+            Quantity = quantity;
         }
         public void Show(int IDOption)
         {
