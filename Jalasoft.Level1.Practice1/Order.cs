@@ -40,6 +40,7 @@
                     menuContinue = false;
             } while (menuContinue);
 
+            menuContinue= true;
             Console.WriteLine("The total price for Dishes is: {0}", TotalPriceDishes());
             do
             {
@@ -52,13 +53,20 @@
                     Console.WriteLine("Enter the quantity:");
                     int quantityBeverage = int.Parse(Console.ReadLine());
                     BeverageOrders.Add(new Beverage(selectedBeverages.Name, selectedBeverages.Value, quantityBeverage));
-               
+
+                Console.WriteLine("Do you want to add other Beverage? Y/N");
+
                 if (Console.ReadLine().ToLower() == "n")
                     menuContinue = false;
             } while (menuContinue);
 
             Console.WriteLine("The total price for  is: {0}", TotalPriceBeverage());
-            Console.WriteLine("The total price for  your order is:{0}", TotalPriceBeverage()+TotalPriceDishes());
+            Console.WriteLine("The total price for  your order is:{0}", Orderprice());
+
+        }
+        public double Orderprice()
+        {
+            return TotalPriceBeverage() + TotalPriceDishes();
 
         }
 
@@ -87,7 +95,8 @@
 
         public string GetDeliverOrderInformation()
         {
-            return string.Empty;
+            string information = string.Format("The order made by {0},the price total is:{1}",NameCustomer, Orderprice());
+            return information;
         }
 
     }

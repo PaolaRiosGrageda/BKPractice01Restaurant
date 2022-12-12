@@ -25,13 +25,17 @@ namespace Jalasoft.Level1.Practice1
         public void AddOrder(Order newOrder)
         {
             if (Orders.Count < 5)
+            {
                 Orders.Enqueue(newOrder);
-            else
+                Console.WriteLine("We have {0} order preparing", Orders.Count);
+            }
+
+            if(Orders.Count == 5)
             {
                 PrepareTop5Orders();
                 DeliverTop5Orders();
             }
-                Console.WriteLine(" we have five orders, we can't receive more orders");
+                
         }
         private void PrepareTop5Orders()
         {
@@ -41,6 +45,7 @@ namespace Jalasoft.Level1.Practice1
         private void DeliverTop5Orders()
         {
             Last5PreparedOrders.Clear();
+            Console.WriteLine("delivering five orders");
             for (int i = 0; i < 5; i++)
             {
                 Order deliveredOrder = Orders.Dequeue();
@@ -63,8 +68,8 @@ namespace Jalasoft.Level1.Practice1
             Console.WriteLine("--------------");
             Console.WriteLine("1.Show Menu ");
             Console.WriteLine("2. Register Order");
-            Console.WriteLine("3. Show debt");
-            Console.WriteLine("4. Show delivered orders");
+            Console.WriteLine("3. Show 5 Orders");
+            Console.WriteLine("4. Show delivered 5 orders");
             Console.WriteLine("0. Exit");
         }
         public void Start()
@@ -91,10 +96,10 @@ namespace Jalasoft.Level1.Practice1
                     AddOrder(new Order());
                     break;
                 case 3:
-                    Console.WriteLine("Usted selecciono4"); ;
+                    PrepareTop5Orders();
                     break;
                 case 4:
-                    Console.WriteLine("Usted selecciono4");
+                    DeliverTop5Orders();
                     break;
 
                 case 0:

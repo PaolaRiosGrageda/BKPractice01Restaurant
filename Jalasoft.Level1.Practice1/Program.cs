@@ -7,7 +7,7 @@ public struct Program
     {
         RestaurantMenu menu1 = new RestaurantMenu();
 
-        Console.WriteLine("Hello, World!");
+       // Console.WriteLine("Hello, World!");
         menu1.Start();
     }
     
