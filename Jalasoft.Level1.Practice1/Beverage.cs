@@ -15,9 +15,9 @@ namespace Jalasoft.Level1.Practice1
             Name = name; 
             Value = value;
         }
-        public void Show()
+        public void Show(int IDOption)
         {
-            Console.WriteLine("Beverage:{0}--------- the price is: {1}", Name,Value);
+            Console.WriteLine("{0}  Beverage:{1}--------- the price is: {2}",IDOption, Name,Value);
         }
     }
 }

@@ -27,24 +27,40 @@ namespace Jalasoft.Level1.Practice1
             Beverages.Add(new Beverage() { Name = NameBeverage.Beer, Value = 7.5 });
         }
 
-        public void Show()
+        public void ShowDishes()
         {
             Console.WriteLine("----------------------");
-            Console.WriteLine("The menu of the restaurant ---Practice01---- es:");
+            Console.WriteLine("The menu of the restaurant ---Practice01---- is:");
             Console.WriteLine("Dishes:");
             for (int i = 0; i < Dishes.Count; i++)
             {
-                Dishes[i].Show();
+                Dishes[i].Show(i + 1);
             }
+
+        }
+        public void ShowBeverages() 
+        {
+            Console.WriteLine("----------------------");
             Console.WriteLine("Beverages:");
             for (int i = 0; i < Beverages.Count; i++)
             {
-                Beverages[i].Show();
+                Beverages[i].Show(Dishes.Count+i+1);
             }
+            
             Console.WriteLine("----------------------");
-
+        }
+        public int GetTotalDishes()
+        {
+            return Dishes.Count;
+        }
+        public int GetTotalBeverages()
+        {
+            return Dishes.Count;
         }
 
-
+        public int GetTotalOptions()
+        {
+            return Beverages.Count + Dishes.Count;
+        }
     }
 }
